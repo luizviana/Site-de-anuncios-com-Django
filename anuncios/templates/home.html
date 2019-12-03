@@ -1,7 +1,89 @@
+{% load static %}
+
+<!DOCTYPE HTML>
 <html>
 <head>
-    <body>
-<h1>Hello world!!!</h1>
-</body>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Anúncios</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.2/dist/semantic.min.js"></script>
 </head>
+
+<body>
+
+<div class="ui attached menu" style="height: 10px;">
+    <div class="ui container">
+        <a class="item">Home</a>
+        <div class="right menu">
+            <div class="ui right aligned category search item">
+                <div class="ui transparent icon input">
+                    <input class="prompt" type="text" placeholder="Pesquisar..." style="width: 135px;border: transparent;background-color: transparent; color: white;">
+                    <i class="search icon" style="margin-right: 10px"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui container">
+    <div class="ui stackable grid">
+        <div class="four wide column">
+            <div class="ui vertical fluid menu" style="text-align: center;">
+                <a class="item">
+                    Informática
+                </a>
+                <a class="item">
+                    Imóveis
+                </a>
+            </div>
+        </div>
+
+        <div class="twelve wide column">
+            <div class="ui three column stackable fluid grid">
+                <div class="column">
+                    <div class="ui fluid card">
+                        <div class="image">
+                            <img src="{% static 'anuncios/img/image.png' %}">
+                        </div>
+                        <div class="content">
+                            <a class="header">Chevete</a>
+                        </div>
+                        <div class="extra content">
+                            <a>
+                                R$ 20,00
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui fluid card">
+                        <div class="image">
+                            <img src="{% static 'anuncios/img/image.png' %}">
+                        </div>
+                        <div class="content">
+                            <a class="header">Casa</a>
+                        </div>
+                        <div class="extra content">
+                            <a>
+                                R$ 1000,00
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
 </html>
+
