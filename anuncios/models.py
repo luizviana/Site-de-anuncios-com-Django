@@ -8,6 +8,8 @@ class Categoria(models.Model):
     def __str__(self):
         return self.titulo
 
+    class Meta:
+        ordering = ['titulo']
 
 
 class Anuncio(models.Model):
@@ -20,3 +22,6 @@ class Anuncio(models.Model):
 
     def __str__(self):
         return self.titulo
+
+    class Meta:
+        ordering = ['-id']
