@@ -13,7 +13,7 @@
 
 <div class="ui attached inverted menu">
     <div class="ui container">
-        <a class="item">Django Aúncios</a>
+        <a href="{% url 'home' %}" class="item">DJANGO ANÚNCIOS</a>
         <div class="right menu">
             <div class="ui right aligned category search item">
                 <div class="ui transparent icon input">
@@ -35,9 +35,15 @@
         <div class="four wide column">
             <div class="ui secondary vertical pointing menu">
                 {% for categoria in categorias %}
-                    <a class="item center aligned">
+                    <a id="{{ categoria.slug }}" href="{% url 'categoria' slug=categoria.slug  %}" class="item center aligned">
                         {{ categoria }}
                     </a>
+                    <script>
+                        item = document.getElementById('{{ categoria.slug }}')
+                        if (document.URL == item.href){
+                            item.className = "active item center aligned"
+                        }
+                    </script>
                 {% endfor %}
             </div></div>
         <div class="twelve wide column">

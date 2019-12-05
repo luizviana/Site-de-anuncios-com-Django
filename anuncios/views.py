@@ -9,4 +9,14 @@ def home(request):
 
     return render(request, 'home.html', {'categorias': categorias,
                                          'anuncios': ultimos_anuncios})
+
+
+def categoria(request, slug):
+    categorias = Categoria.objects.all()
+    categoria_slug = Categoria.objects.filter(slug=slug).get()
+
+    anuncios = Anuncio.objects.filter(categoria=categoria_slug)
+
+    return render(request, 'home.html', {'categorias': categorias,
+                                         'anuncios': anuncios})
 # Create your views here.
