@@ -17,8 +17,7 @@ def home(request):
 
 def categoria(request, slug):
     categorias = Categoria.objects.all()
-
-    categoria_slug = get_object_or_404(Categoria, slug=slug)#Categoria.objects.filter(slug=slug).get()
+    categoria_slug = get_object_or_404(Categoria, slug=slug)
 
     anuncios = Anuncio.objects.filter(categoria=categoria_slug)
     count_anuncios = []
@@ -27,5 +26,6 @@ def categoria(request, slug):
 
     return render(request, 'home.html', {'categorias': categorias,
                                          'anuncios': anuncios,
-                                         'count_anuncios': count_anuncios,})
+                                         'count_anuncios': count_anuncios,
+                                         'categoria': categoria_slug})
 # Create your views here.

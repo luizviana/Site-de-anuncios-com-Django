@@ -2,27 +2,34 @@
 {% load static %}
 
 {% block conteudo %}
-<div class="ui three column stackable fluid grid">
-    {% for anuncio in anuncios %}
-        <div class="column">
-            <div class="ui fluid link card">
-                <div class="image">
-                    <img src="{% static 'anuncios/img/image.png' %}">
-                </div>
-                <div class="content">
-                    <a class="header" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">{{ anuncio.titulo }}</a>
-                    <div class="meta">
-                        <span class="date">{{ anuncio.categoria }}</span>
+    <div class="ui three column stackable fluid grid">
+        {% for anuncio in anuncios %}
+            <div class="column">
+                <div class="ui fluid link card">
+                    <div class="image">
+                        <img src="{% static 'anuncios/img/image.png' %}">
+                    </div>
+                    <div class="content">
+                        <a class="header" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">{{ anuncio.titulo }}</a>
+                        <div class="meta">
+                            <span class="date">{{ anuncio.categoria }}</span>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a name="a" style="font-weight: bold;">
+                            R$ {{ anuncio.preco }}
+                        </a>
                     </div>
                 </div>
-                <div class="extra content">
-                    <a name="a" style="font-weight: bold;">
-                        R$ {{ anuncio.preco }}
-                    </a>
+            </div>
+        {% empty %}
+            <div class="sixteen wide column center aligned" style="margin-top: 20px">
+                <div class="black ui message fluid">
+                    Não foi encontrado nenhum anúncio na categoria {{ categoria|lower }}.
                 </div>
             </div>
-        </div>
-    {% endfor %}
-</div>
+
+        {% endfor %}
+    </div>
 {% endblock %}
 
