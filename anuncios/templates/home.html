@@ -5,30 +5,34 @@
     <div class="ui three column stackable fluid grid">
         {% for anuncio in anuncios %}
             <div class="column">
-                <div class="ui fluid link card">
-                    <div class="image">
-                        <img src="{% static 'anuncios/img/image.png' %}">
-                    </div>
-                    <div class="content">
-                        <a class="header" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">{{ anuncio.titulo }}</a>
-                        <div class="meta">
-                            <span class="date">{{ anuncio.categoria }}</span>
+                <a href="{% url 'anuncio' categoria_slug=anuncio.categoria.slug anuncio_slug=anuncio.slug %}">
+                    <div class="ui fluid link card">
+                        <div class="ui image">
+                            <img src="{% static 'anuncios/img/image.png' %}">
+                        </div>
+                        <div class="content">
+                            <a href="{% url 'anuncio' categoria_slug=anuncio.categoria.slug anuncio_slug=anuncio.slug %}" class="header" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">{{ anuncio.titulo }}</a>
+                            <div class="meta">
+                                <span class="date">{{ anuncio.categoria }}</span>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <a name="a" style="font-weight: bold;">
+                                R$ {{ anuncio.preco }}
+                            </a>
                         </div>
                     </div>
-                    <div class="extra content">
-                        <a name="a" style="font-weight: bold;">
-                            R$ {{ anuncio.preco }}
-                        </a>
-                    </div>
-                </div>
             </div>
+
+            </a>
+
+
         {% empty %}
             <div class="sixteen wide column center aligned" style="margin-top: 20px">
                 <div class="black ui message fluid">
                     Não foi encontrado nenhum anúncio na categoria {{ categoria|lower }}.
                 </div>
             </div>
-
         {% endfor %}
     </div>
 {% endblock %}

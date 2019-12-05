@@ -15,14 +15,17 @@
     <div class="ui container">
         <a href="{% url 'home' %}" class="item">DJANGO ANÚNCIOS</a>
         <div class="right menu">
-            <div class="ui right aligned category search item">
-                <div class="ui transparent icon input">
-                    <input type="text" placeholder="Pesquisar..." style="color: white;">
-                    <i class="search inverted icon"></i>
-                </div>
-            </div>
+            <form action="{% url 'buscar' %}" method="GET">
+                <div class="ui right aligned category search item">
+                    <div class="ui transparent icon input">
+
+                        <input name="q" type="text" placeholder="Pesquisar..." style="color: white;">
+                        <button type="submit" style="background-color: transparent; border: none;" ><i class="search inverted icon"></i></button>
+            </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 </div>
 
@@ -62,7 +65,34 @@
         </div>
     </div>
 </div>
-
+<div class="ui inverted vertical segment stackable" style="; bottom: 0; left: 0; right: 0; margin-top: 30px">
+    <div class="ui hidden divider" ></div>
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header">Menu</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Anuncie</a>
+                    <a href="#" class="item">Sitemap</a>
+                    <a href="#" class="item">Contato</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">Caterias mais populares</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Automoveis</a>
+                    <a href="#" class="item">Imóveis</a>
+                    <a href="#" class="item">Eletrônicos</a>
+                </div>
+            </div>
+            <div class="nine wide column">
+                <h4 class="ui inverted header">Sobre</h4>
+                <p>Site aprimorado e finalizado para estudos do framework Django - Projeto 6 Python Profissional Solyd</p>
+            </div>
+        </div>
+    </div>
+    <div class="ui hidden divider"></div>
+</div>
 
 
 </body>

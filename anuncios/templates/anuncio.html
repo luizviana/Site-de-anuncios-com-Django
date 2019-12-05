@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block conteudo %}
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <h1 class="ui header">
+                {{ anuncio.titulo }}
+                <div class="sub header">
+                    Alterado em: {{ anuncio.alterado_em }}
+                    <br>
+                    Criado em: {{ anuncio.criado_em }}
+                </div>
+                <hr>
+            </h1>
+        </div>
+        <div class="sixteen wide column">
+            <div class="ui image">
+                <img class="" src="{% static 'anuncios/img/image.png' %}"/>
+            </div>
+        </div>
+        <div class="sixteen wide column">
+            <h3>
+               Preço: R$ {{ anuncio.preco }}
+            </h3>
+            <h3 class="ui header">
+                <strong>Descrição</strong>
+                <hr>
+                <div class="sub header">
+                    {{ anuncio.descricao }}
+                </div>
+            </h3>
+        </div>
+    </div>
+{% endblock %}
+
