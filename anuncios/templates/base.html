@@ -30,23 +30,33 @@
 
 <div class="ui container ">
     <div class="ui stackable grid">
-        <div class="sixteen wide column"><h1>Categorias</h1>
-            <hr></div>
+        <div class="sixteen wide column">
+        </div>
         <div class="four wide column">
-            <div class="ui secondary vertical pointing menu">
+            <h3>Categorias</h3>
+            <hr>
+            <div class="ui secondary vertical fluid pointing menu">
+                <script>
+                    count = {{ count_anuncios }}
+                </script>
                 {% for categoria in categorias %}
                     <a id="{{ categoria.slug }}" href="{% url 'categoria' slug=categoria.slug  %}" class="item center aligned">
-                        {{ categoria }}
+                        {{ categoria }} <div class="ui label"></div>
                     </a>
                     <script>
                         item = document.getElementById('{{ categoria.slug }}')
                         if (document.URL == item.href){
-                            item.className = "active item center aligned"
+                            item.className = "black active item center aligned"
+                            item.getElementsByTagName('div')[0].style = "background-color: black;"
+                            item.style = "margin-left: 10px;"
                         }
+                        item.getElementsByTagName('div')[0].innerText = count.splice(0,1)
                     </script>
                 {% endfor %}
+
             </div></div>
         <div class="twelve wide column">
+            <hr style="margin-top: 37px">
             {% block conteudo %}
             {% endblock %}
         </div>
